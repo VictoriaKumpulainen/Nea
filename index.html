@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0036)https://johndurso.github.io/myspace/ -->
 <html lang="en">
 
 <head>
@@ -8,6 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>My Profile | Myspace</title>
     <link rel="stylesheet" href="./myspace.css">
+    
+    <style>
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
+            background: #fff; /* Matches the profile background */
+            border: 1px solid #ccc;
+            margin: 20px 0;
+        }
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 200px; /* Adjust this to change the "normal size" of your photos */
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto; /* MAINTAINS PROPORTIONS - FIXES STRETCHING */
+            display: block;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 
 <body>
@@ -123,7 +145,6 @@
                     <a href="#">http://www.myspace.com/neatulonen</a>
                 </div>
                 <div class="musicPlayer">
-                    <!-- audio: https://www.youtube.com/watch?reload=9&v=UgmY2sB71Hc -->
                     <button id="playSong" class="show" type="button" onclick="audio.play(); playAudio()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M3 22v-20l18 10-18 10z"></path>
@@ -182,16 +203,6 @@
                         veritatis optio unde commodi ipsam porro tempora dicta provident tenetur, molestiae quae. Odit
                         velit, quam dolorum.</p>
 
-                    <!-- GALLERIA ALKAA TÄSTÄ -->
-                    <h4>Kuvagalleria:</h4>
-                    <div class="gallery-container">
-                        <div class="gallery-item"><img src="./images/rock.jpeg" alt=""></div>
-                        <div class="gallery-item"><img src="./images/WhatsApp Image 2026-05-08 at 17.42.21.jpeg" alt="Kuva 2"></div>
-                        <div class="gallery-item"><img src="kuva3.jpg" alt="Kuva 3"></div>
-                        <div class="gallery-item"><img src="kuva4.jpg" alt="Kuva 4"></div>
-                    </div>
-                    <!-- GALLERIA PÄÄTTYY -->
-
                     <h4>Who I'd like to meet:</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, nemo.</p>
                 </div>
@@ -200,11 +211,11 @@
                     <p style="font-weight: bold; margin-left: 10px;"><span class="userName">Nea Tulonen</span> has 12
                         friends.</p>
                     <div class="top8">
-                        <div><a href="#">Vikke<br><img src="./images/Untitled design (1).png" alt=""></a></div>
+                        <div><a href="#">Vikke<br><img src="./images/vikke1.jpeg" alt=""></a></div>
 
                         <div><a href="#">Niko<br><img src="./My Profile _ Myspace_files/finn.jpg" alt=""></a></div>
 
-                        <div><a href="#">Arttu<br><img src="./images/WhatsApp Image 2026-05-08 at 16.39.41.jpeg"
+                        <div><a href="#">Arttu<br><img src="./images/arttu.jpeg"
                                     alt=""></a></div>
 
                         <div><a href="#">Macc<br><img src="./My Profile _ Myspace_files/louie.jpg" alt=""></a></div>
@@ -234,6 +245,15 @@
                 </div>
             </div>
         </div>
+        
+        <h4 style="margin-left: 20px;">Kuvagalleria:</h4>
+        <div class="gallery-container">
+            <div class="gallery-item"><img src="./images/rock.jpeg" alt="Buy tickets to Nea's Last Tour"></div>
+            <div class="gallery-item"><img src="./images/lilith.jpeg" alt=""></div>
+            <div class="gallery-item"><img src="./images/jake ja nea.jpeg" alt=""></div>
+            <div class="gallery-item"><img src="./images/simple plan.jpeg" alt=""></div>
+        </div>
+
     </div>
     <script>
         var today = new Date();
