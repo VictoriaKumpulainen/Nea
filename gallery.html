@@ -1,27 +1,90 @@
 <!DOCTYPE html>
 <html lang="fi">
+
 <head>
     <meta charset="UTF-8">
-    <title>Oma Kuvasarja</title>
+    <title>Kuvagalleria</title>
     <link rel="stylesheet" href="myspace.css">
 </head>
+
 <body>
 
-    <header>
-        <h1>Minun Kuvagalleriani</h1>
-    </header>
+    <!-- Slideshow container -->
+    <div class="slideshow-container" id="slideshow-inner">
+        <!-- Images will be generated here by JavaScript -->
 
-    <div class="gallery-container">
-        <div class="gallery-item">
-            <img src="./images/rock.jpeg" alt="Kuvaus kohteesta 1">
-        </div>
-        <div class="gallery-item">
-            <img src="kuva2.jpg" alt="Kuvaus kohteesta 2">
-        </div>
-        <div class="gallery-item">
-            <img src="kuva3.jpg" alt="Kuvaus kohteesta 3">
-        </div>
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <!-- The dots container -->
+    <div style="text-align:center" id="dot-container">
+        <!-- Dots will be generated here by JavaScript -->
     </div>
 
+    <script>
+        let slideIndex = 1;
+
+        const slideshowInner = document.getElementById('slideshow-inner');
+        const dotContainer = document.getElementById('dot-container');
+        const totalImages = 20;
+
+        // 1. Clear existing content to avoid duplicates
+        dotContainer.innerHTML = '';
+
+        // 2. Loop forward from 1 to 20
+        for (let i = 1; i <= totalImages; i++) {
+            // Create Slide HTML
+            const slideHtml = `
+        <div class="mySlides fade">
+            <div class="numbertext">${i} / ${totalImages}</div>
+            <img src="gallery/${i}.jpeg" style="width: 100%;">
+        </div>`;
+
+            // 'beforeend' ensures 1 is first, 2 is second, etc.
+            slideshowInner.insertAdjacentHTML('beforeend', slideHtml);
+
+            // Create Dot HTML
+            const dotHtml = `<span class="dot" onclick="currentSlide(${i})"></span>`;
+            dotContainer.innerHTML += dotHtml;
+        }
+
+        // 3. Move the navigation buttons to the END of the container 
+        // so they sit on top of the images
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        slideshowInner.appendChild(prevBtn);
+        slideshowInner.appendChild(nextBtn);
+
+        // 4. Initialize the display
+        showSlides(slideIndex);
+
+        // --- Standard Functions (No changes needed here) ---
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+
 </body>
+
 </html>
